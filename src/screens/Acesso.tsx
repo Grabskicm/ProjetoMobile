@@ -1,20 +1,24 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, StatusBar, Text} from 'react-native';
 
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center', 
+      justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#00FA9A',
+      backgroundColor: '#FFB6C1',
     },
-    
+   
   });
+
 
 const Acessado = [
 
-    
+
+///https://tamagochiapi-clpsampedro.b4a.run
 ];
+
 
 const Acesso = ({route}: any) => {
   const {params} = route;
@@ -22,10 +26,11 @@ const Acesso = ({route}: any) => {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <StatusBar />
-        
+       
       </ScrollView>
     </SafeAreaView>
   );
 };
+
 
 export default Acesso;
