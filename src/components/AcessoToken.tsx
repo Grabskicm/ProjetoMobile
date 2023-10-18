@@ -10,4 +10,5 @@ const useAuthStore = create<AuthStore>((set) => ({
   setToken: (newToken) => set({ token: newToken }),
 }));
 
+
 export default useAuthStore;
