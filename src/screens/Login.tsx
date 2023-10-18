@@ -117,4 +117,5 @@ const Login = ({ navigation }: any) => {
     </SafeAreaView>
   );
 };
+
 export default Login;
