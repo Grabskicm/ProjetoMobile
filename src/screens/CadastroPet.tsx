@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {TextInput, SafeAreaView, StyleSheet, Text, Button, View} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { TextInput, SafeAreaView, StyleSheet, Text, Button, View } from 'react-native';
 import axios from 'axios';
-
+import useAuthStore from '../components/AcessoToken';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,53 +22,56 @@ const styles = StyleSheet.create({
   botao: {
     margin: 10,
   },
- 
 });
 
-
-const CadastroPet = ({navigation}: any) => {
+const CadastroPet = ({ navigation }: any) => {
   const [text, setText] = useState<string>();
+  const { token } = useAuthStore();
 
   const registerData = async () => {
+    console.log(text);
+    console.log(token);
     try {
-      const {data} = await axios.post(
-        'https://tamagochiapi-clpsampedro.b4a.run/pet',{
-          name:text,
-         }
+      const { data } = await axios.post(
+        'https://tamagochiapi-clpsampedro.b4a.run/pet',
+        {
+          name: text,
+        },
+        {
+          headers: {
+            'x-access-token': token,
+          },
+        }
       );
-       console.log("Pet cadastrado com sucesso");
-     } catch (error) {
+      console.log("Pet cadastrado com sucesso");
+    } catch (error) {
       console.log("Não foi possível cadastrar", error);
     }
-  
   };
 
-
   useEffect(() => {
-   
+  
   }, []);
 
-
-   
-    return (
-      <SafeAreaView style={styles.container}>
-        <TextInput
-          style={styles.input}
-          value={text}
-            placeholder="Pet"
+  return (
+    <SafeAreaView style={styles.container}>
+      <TextInput
+        style={styles.input}
+        value={text}
+        placeholder="Pet"
+        onChangeText={setText}
+      />
+      <View style={styles.botao}>
+        <Button
+          onPress={() => {
+            registerData();
+          }}
+          color="#C71585"
+          title="Registrar"
         />
+      </View>
+    </SafeAreaView>
+  );
+};
 
-        <View style={styles.botao}>
-            <Button
-            onPress={() => {
-                registerData();
-            }}
-            color={"#C71585"}
-            title="Registrar"/>
-        </View>
-      </SafeAreaView>
-    );
-        }
-
-  export default CadastroPet;
-  
+export default CadastroPet;

@@ -19,9 +19,9 @@ function App(): JSX.Element {
     <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="ListPage" component={ListPage} />
+        <Stack.Screen name="Listagem" component={ListPage} />
         <Stack.Screen name="Cadastro" component={Cadastro} />
-        <Stack.Screen name="Acesso" component={Acesso} />
+        {/* <Stack.Screen name="Acesso" component={Acesso} /> */}
         <Stack.Screen name="CadastroPet" component={CadastroPet} />
         <Stack.Screen name="Atualiza" component={Atualiza} />
       </Stack.Navigator>
