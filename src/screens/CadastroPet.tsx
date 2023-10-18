@@ -73,5 +73,5 @@ const CadastroPet = ({ navigation }: any) => {
     </SafeAreaView>
   );
 };
-
+////
 export default CadastroPet;
