@@ -9,6 +9,9 @@ import Cadastro from './src/screens/Cadastro';
 import CadastroPet from './src/screens/CadastroPet';
 import ListPage from './src/screens/ListPage';
 import Atualiza from './src/screens/Atualiza';
+import Detalhes from './src/screens/Detalhes';
+import Jogo from './src/screens/Jogo';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -24,6 +27,8 @@ function App(): JSX.Element {
         <Stack.Screen name="Acesso" component={Acesso} />
         <Stack.Screen name="CadastroPet" component={CadastroPet} />
         <Stack.Screen name="Atualiza" component={Atualiza} />
+        <Stack.Screen name="Detalhes" component={Detalhes} />
+        <Stack.Screen name="Jogo" component={Jogo} />
       </Stack.Navigator>
     </NavigationContainer>
   );
